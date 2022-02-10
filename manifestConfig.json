@@ -1,10 +1,8 @@
 {
-
-  "permissions": [
-    "Cookie"
-  ],
+  "permissions": [],
   "content_scripts_matches": [
-    "<all_urls>"
+    "http://*.wtu.edu.cn/*",
+    "https://*.wtu.edu.cn/*"
   ],
   "options_ui": {
     "open_in_tab": true
