@@ -1,1 +1,24 @@
-{"name":"wtu-optimization-plugin","version":"1.0.0","description":"","main":"index.js","scripts":{"dev":"webpack-chrome-extension-dev-script dev","build":"webpack-chrome-extension-dev-script build","test":"echo \"Error: no test specified\" && exit 1"},"keywords":[],"author":"","license":"ISC","devDependencies":{"chrome-types":"^0.1.86","css-loader":"^6.6.0","mini-css-extract-plugin":"^2.5.3","webpack":"^5.68.0","webpack-chrome-extension-dev-script":"0.0.1"},"dependencies":{}}
+{
+  "name": "wtu-optimization-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-chrome-extension-dev-script dev",
+    "build": "webpack-chrome-extension-dev-script build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chrome-types": "^0.1.86",
+    "css-loader": "^6.6.0",
+    "mini-css-extract-plugin": "^2.5.3",
+    "webpack": "^5.68.0",
+    "webpack-chrome-extension-dev-script": "0.0.1"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
+}

@@ -1,3 +1,3 @@
-import myModule from './module'
-import ('./index.css')
-myModule()
+import autoReloginPlugin from './auto-relogin-plugin'
+
+autoReloginPlugin()
