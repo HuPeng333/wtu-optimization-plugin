@@ -1,9 +1,11 @@
 {
   "permissions": [],
-  "content_scripts_matches": [
-    "http://*.wtu.edu.cn/*",
-    "https://*.wtu.edu.cn/*"
-  ],
+  "content_scripts_matches": {
+    "auto-relogin-plugin": [
+      "http://*.wtu.edu.cn/*",
+      "http://*.wtu.edu.cn/*"
+    ]
+  },
   "options_ui": {
     "open_in_tab": true
   }

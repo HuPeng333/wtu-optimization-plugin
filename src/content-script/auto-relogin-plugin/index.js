@@ -1,4 +1,4 @@
-import showToast from "../util/Toast"
+import showToast from "../../util/Toast"
 
 function preCheck() {
   const LOGIN_URL_REGX = /jwglxt.wtu.edu.cn\/xtgl\/login_slogin.html/
@@ -29,8 +29,5 @@ function startObserver () {
   })
 }
 
-export default () => {
-  console.log('run')
-  preCheck()
-  startObserver()
-}
+preCheck()
+startObserver()

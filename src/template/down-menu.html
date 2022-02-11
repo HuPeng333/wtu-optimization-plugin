@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>down-menu</title>
+  <script type="text/javascript" src="./lib/jquery.js"></script>
+  <style>
+    .nav-bar-beauty-outer{
+      display: flex;
+      box-sizing: border-box;
+      padding: 0 40px;
+    }
+    .nav-bar-beauty-down-menu-title {
+      width: 100px;
+      height: 50px;
+      line-height: 50px;
+      font-size: 20px;
+      text-align: center;
+      border: 1px solid white;
+    }
+    .nav-bar-beauty-menu{
+      position: fixed;
+      margin-top: 0;
+      background-color: skyblue;
+      width: 150px;
+      overflow: hidden;
+      transition: all .5s;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <div class="nav-bar-beauty-outer" id="nav-bar-beauty-outer">
+    <div class="nav-bar-beauty-down-menu-title">
+      <span>信息查询</span>
+    </div>
+    <div class="nav-bar-beauty-down-menu-title">
+      <span>信息查询2</span>
+    </div>
+    <div class="nav-bar-beauty-down-menu-title">
+      <span>信息查询3</span>
+    </div>
+  </div>
+  <ul id="nav-bar-beauty-menu" class="nav-bar-beauty-menu" role="menu" aria-labelledby="drop1" style="height: 0">
+    <li><a tabindex="-1" onclick="clickMenu('N100801','/xsxxxggl/xsgrxxwh_cxXsgrxx.html','查询个人信息','null'); return false;" href="javascript:void(0);" target="_blank">查询个人信息</a></li> <li><a tabindex="-1" onclick="clickMenu('N214505','/kbdy/bjkbdy_cxBjkbdyIndex.html','推荐课表打印','null'); return false;" href="javascript:void(0);" target="_blank">推荐课表打印</a></li> <li><a tabindex="-1" onclick="clickMenu('N2151','/kbcx/xskbcx_cxXskbcxIndex.html','学生课表查询','null'); return false;" href="javascript:void(0);" target="_blank">学生课表查询</a></li> <li><a tabindex="-1" onclick="clickMenu('N2155','/cdjy/cdjy_cxKxcdlb.html','查询空闲教室','null'); return false;" href="javascript:void(0);" target="_blank">查询空闲教室</a></li> <li><a tabindex="-1" onclick="clickMenu('N2158','/kbcx/xskbqr_cxXskbqrIndex.html?doType=details','学生选课情况确认','null'); return false;" href="javascript:void(0);" target="_blank">学生选课情况确认</a></li> <li><a tabindex="-1" onclick="clickMenu('N255010','/xkcx/xkmdcx_cxXkmdcxIndex.html','选课名单查询','null'); return false;" href="javascript:void(0);" target="_blank">选课名单查询</a></li> <li><a tabindex="-1" onclick="clickMenu('N255720','/cxkccx/cxkccx_cxCxkccxIndex.html','重修课程查询','null'); return false;" href="javascript:void(0);" target="_blank">重修课程查询</a></li> <li><a tabindex="-1" onclick="clickMenu('N305005','/cjcx/cjcx_cxDgXscj.html','学生成绩查询','null'); return false;" href="javascript:void(0);" target="_blank">学生成绩查询</a></li> <li><a tabindex="-1" onclick="clickMenu('N305007','/cjcx/cjcx_cxDgXsxmcj.html','学生成绩明细查询','null'); return false;" href="javascript:void(0);" target="_blank">学生成绩明细查询</a></li> <li><a tabindex="-1" onclick="clickMenu('N358105','/kwgl/kscx_cxXsksxxIndex.html','考试信息查询','null'); return false;" href="javascript:void(0);" target="_blank">考试信息查询</a></li> <li><a tabindex="-1" onclick="clickMenu('N4711','/jcckgl/jcckxs_cxJcckAXsmxIndex.html','学生教材出库明细查询','null'); return false;" href="javascript:void(0);" target="_blank">学生教材出库明细查询</a></li> <li><a tabindex="-1" onclick="clickMenu('N759020','/jcmxcx/jcmxcx_cxJcmxcxIndex.html','教材明细查询','null'); return false;" href="javascript:void(0);" target="_blank">教材明细查询</a></li> <li><a tabindex="-1" onclick="clickMenu('N305516','/xyyjjk/xyyjclcx_cxXyyjclcxxsIndex.html','学业预警处理查询','null'); return false;" href="javascript:void(0);" target="_blank">学业预警处理查询</a></li> <li><a tabindex="-1" onclick="clickMenu('N105515','/xsxy/xsxyqk_cxXsxyqkIndex.html','学生学业情况查询','null'); return false;" href="javascript:void(0);" target="_blank">学生学业情况查询</a></li> <li><a tabindex="-1" onclick="clickMenu('N153540','/jxzxjhgl/jxzxjhck_cxJxzxjhckIndex.html','教学执行计划查看','null'); return false;" href="javascript:void(0);" target="_blank">教学执行计划查看</a></li>
+  </ul>
+</div>
+<div>eee</div>
+<script>
+const elements = document.getElementsByClassName('nav-bar-beauty-down-menu-title')
+// false: 不在当前元素上 true: 在当前元素上
+let leaveStatusOnTitle = true
+let leaveStatusOnDownMenu = false
+let onId = -1
+for (let i = 0, len = elements.length; i < len; i++) {
+  elements[i].addEventListener('mouseover', () => {
+    onId = i
+    leaveStatusOnTitle = true
+    toggleDownMenu()
+  })
+}
+document.getElementById("nav-bar-beauty-outer").addEventListener('mouseleave', () => {
+  leaveStatusOnTitle = false
+  hideDownMenu()
+})
+const $downMenu = $('#nav-bar-beauty-menu')
+$downMenu.on('mouseleave', () => {
+  leaveStatusOnDownMenu = false
+  console.log('leave')
+  hideDownMenu()
+})
+$downMenu.on('mouseover', () => {
+  console.log('over')
+  leaveStatusOnDownMenu = true
+})
+const BASE_TRANSITION_DISTANCE = 100
+const HEIGHT_RECORD = [500, 300, 100]
+function toggleDownMenu() {
+  if (!leaveStatusOnTitle) {
+    $downMenu.height(500)
+  }
+  $downMenu.css('transform', `translateX(${onId * BASE_TRANSITION_DISTANCE}px)`)
+  $downMenu.height(HEIGHT_RECORD[onId])
+}
+setInterval(() => {
+  console.log(leaveStatusOnTitle, leaveStatusOnDownMenu)
+}, 1000)
+function hideDownMenu() {
+  setTimeout(() => {
+    if (!leaveStatusOnTitle && !leaveStatusOnDownMenu) {
+      leaveStatusOnTitle = true
+      leaveStatusOnDownMenu = false
+      $downMenu.height(0)
+    }
+  }, 100)
+}
+</script>
+</body>
+</html>
