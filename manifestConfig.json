@@ -2,8 +2,10 @@
   "permissions": [],
   "content_scripts_matches": {
     "auto-relogin-plugin": [
-      "http://*.wtu.edu.cn/*",
-      "http://*.wtu.edu.cn/*"
+      "*://*.wtu.edu.cn/*"
+    ],
+    "edu-system-index-beauty-plugin": [
+      "*//:jwglxt.wtu.edu.cn/xtgl/index_initMenu.html"
     ]
   },
   "options_ui": {
